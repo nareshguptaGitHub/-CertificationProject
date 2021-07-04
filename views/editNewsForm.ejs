@@ -1,0 +1,93 @@
+<div class="container">
+    <center>
+        <div class="inline-flex items-center">
+            <div class="w-2 h-2 p-2 mr-2 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600">
+            </div>
+            <h2 class="block p-2 text-xl font-medium tracking-tighter text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-blueGray-500 lg:text-x lg:mr-8"> Shopping Cart App </h2>
+          </div>
+    </center>
+   
+    <div class="table-responsive">
+      <table class="table table-hover table-striped" id="myTable">
+        
+      <thead class = "thead-dark">
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Published At</th>
+          <th>Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% for(var i=0; i<data.length; i++) {%>
+      <tr>
+        <td><%= data[i].title %></td>
+        <td><%= data[i].description %></td>
+        <td><%= data[i].publishedat %></td>
+        <td>
+          <button type="button" class="update btn btn-warning"
+           data-toggle="modal" data-target="#myModal" 
+           id="<%=data[i]._id%>">
+              Edit
+          </button>
+            <button type="button" id="<%=data[i]._id %>" 
+              class="delete btn btn-danger" 
+              value ="<%=data[i]._id %>">
+              delete
+            </button>
+        </td>
+      </tr>
+    <% } %>
+      </tbody>
+      <tfoot class="thead-dark">
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Published At</th>
+          <th>Edit/Delete</th>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="alert alert-info" role="alert" id="msg1">
+      <%=msg%>
+    </div>
+    <!--  Modal Starts-->
+      <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                      <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit News Data</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                      
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              <div class="container">
+                        <h2>Edit Data</h2>
+                        <form action="news/updateNews" method="POST" id="update_user">
+                          <div class="form-group">
+                            <label for="name">Title:</label>
+                            <input type="text" class="form-control" id="update_title" placeholder="Enter Title" name="title" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Description:</label>
+                            <input type="text" class="form-control" id="update_description" placeholder="Enter Description" name="description">
+                          </div>
+                          <div class="form-group">
+                            <label for="phone">Image URL:</label>
+                            <input type="email" class="form-control" id="update_imageurl" placeholder="Enter Image date" name="imageurl">
+                          </div>
+                        </form>
+                      </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              <button type="submit" id="update_table" class="btn btn-primary">update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+<script type="text/javascript" src="../js/delete.js"></script>
+<script type="text/javascript" src="../js/update.js"></script>

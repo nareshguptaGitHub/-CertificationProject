@@ -1,0 +1,31 @@
+{
+  "name": "newsapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/register": "^7.14.5",
+    "babel-polyfill": "^6.26.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.0",
+    "node-iplocate": "^1.0.2",
+    "node-localstorage": "^2.2.1",
+    "public-ip": "^4.0.4",
+    "request": "^2.88.2",
+    "socket.io": "^4.1.2"
+  }
+}

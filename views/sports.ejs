@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Update 24 x 7: Sports</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+	<div class="column5"><a href="/news/home">Logo</a></div>
+	<div class="column5"><a href="/news/home">Home</a></div>
+	<div class="column5"><a href="/news/sports">Sports</a></div>
+	<div class="column5"><a href="/news/contactus">Contact Us</a></div>
+	<div class="column5"><a href="/news/aboutus">About Us</a></div>
+</header>
+
+<section>
+  <article>
+    <br/>
+        <div class="container">
+                <div >
+                    <h4>City: <%=result.city.name%></h4>
+                </div>
+                <hr/>
+                <div class="row">
+                        <%for(let i=0; i<result.list.length;i++){%>
+                        <div class="card col-md-2">
+                            <div class="row">
+                            <img class="card-img-top" src='https://openweathermap.org/img/w/<%=result.list[i].weather[0].icon%>.png' alt="weather"/>
+                            <span class="topTemp"><%=result.list[i].temp.day%>°C</span>
+                            </div>
+                            <div class="card-body">
+                            <span class="max"><%=result.list[i].temp.max%></span>   /
+                                      <span class="min"><%=result.list[i].temp.min%>°C</span>
+                                <h4 class="card-title"><%=result.list[i].weather[0].main%></h4>
+                                <p class="card-text">
+                                    <p class="day"><%=Date(result.list[i].dt)%> </p>
+                                    
+                                    <p>Humidity: <%=result.list[i].humidity%>%</p>
+                                    
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
+        </div>
+	<br/>
+	<div class="slideshow-container">
+
+		<div class="mySlides fade">
+		  <div class="numbertext">1 / 3</div>
+		  <img src="<%=spimageList.image1%>" style="width:100%">
+		  <div class="text">Caption Text</div>
+		</div>
+
+		<div class="mySlides fade">
+		  <div class="numbertext">2 / 3</div>
+		  <img src="<%=spimageList.image2%>" style="width:100%">
+		  <div class="text">Caption Two</div>
+		</div>
+
+		<div class="mySlides fade">
+		  <div class="numbertext">3 / 3</div>
+		  <img src="<%=spimageList.image3%>" style="width:100%">
+		  <div class="text">Caption Three</div>
+		</div>
+
+	</div>
+	<br>
+
+	<div style="text-align:center">
+	  <span class="dot"></span> 
+	  <span class="dot"></span> 
+	  <span class="dot"></span> 
+	</div>
+	<br/>
+	<div style="height: 200px;">
+		<%for(let i=0; i <sportsList.length;i++){%>
+			<div class="column3">
+			  <b><%=sportsList[i].title%></b><br/>
+			  <p><%=sportsList[i].description%></p>
+			</div>
+		  <%}%>
+	<!-- <div class="column3">
+		<b>Latest News 1</b><br/>
+		<p><%=sportsList.news1%></p>
+	</div>
+	<div class="column3">
+		<b>Latest News 2</b><br/>
+		<p><%=sportsList.news2%></p>
+	</div>
+	<div class="column3">
+		<b>Latest News 3</b><br/>
+		<p><%=sportsList.news3%></p>
+	</div> -->
+	</div>
+	<br/>
+	<div class="column1">
+	<h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+	</div>
+  </article>
+</section>
+<br/>
+<footer>
+  <p>&#169; Copyright 2021: Daily News Agency</p>
+</footer>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+</html>
